@@ -82,6 +82,16 @@ app.delete('/movies', (req, res) => {
     })
 })
 
+app.patch('/movies', (req, res) => {
+  const title = req.body.title
+  const watched = req.body.watched
+  knex('movies')
+    .where({'title': title})
+    .update({
+      watched: watched,
+    })
+})
+
 
 app.listen(PORT, () => {
   console.log(`Knex and Express apps are currently running on port ${PORT}`)

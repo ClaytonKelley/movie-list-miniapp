@@ -6,6 +6,7 @@ exports.up = function(knex) {
   return knex.schema.createTable('movies', (table) => {
     table.increments('id').primary();
     table.string('title', 100);
+    table.boolean('watched').defaultTo(false)
   })
 };
 
